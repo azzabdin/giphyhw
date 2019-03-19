@@ -21,31 +21,31 @@
       <label for="giphy-input">more, Yo!</label>
       <input type="text" id="giphy-input"><br>
 
-      
+
       <input id="add-giphy" type="submit" value="more, Yo!">
     </form>
     <div id="imgs"></div>
 
-  
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-      
+
       var topics = ["babies", "cats", "dogs", "kids"];
 
-      
+
       function renderButtons() {
 
-        
-        
+
+
         $("#buttons-view").empty();
 
-        
+
         for (var i = 0; i < topics.length; i++) {
 
           // Then dynamicaly generating buttons for each movie in the array.
-          
+
           var a = $("<button>");
           // Adding a class
           a.addClass("giphy");
@@ -58,18 +58,18 @@
         }
       }
 
-      
+
       $("#add-giphy").on("click", function (event) {
-        
-        
+
+
         event.preventDefault();
 
-        
+
         var giphy = $("#giphy-input").val().trim();
-        
+
         topics.push(giphy);
 
-        
+
         renderButtons();
       });
       $(document).on("click", ".giphy", function () {
@@ -95,14 +95,13 @@
             b.attr("src", still)
             b.attr("data-still", still);
             b.attr("data-animate", anim);
-            b.attr("data-state","still")
+            b.attr("data-state", "still")
             $("#imgs").append(b)
-            
 
-      
-        var rta=$("<p>").text("rating: " + rating);
-          $("#imgs").append(rta)  
 
+
+            var rta = $("<p>").text("rating: " + rating);
+            $("#imgs").append(rta)
 
 
           }
@@ -110,20 +109,20 @@
 
       })
       $(document).on("click", ".imgd", function (event) {
-        
-      event.preventDefault()
+
+        event.preventDefault()
         var c = $(this).attr("data-state")
         if (c === "still") {
           var animi = $(this).attr("data-animate")
-          $(this).attr("src",animi);
+          $(this).attr("src", animi);
           $(this).attr("data-state", "animate")
         } else {
           var ima = $(this).attr("data-still")
-          $(this).attr("src",ima);
+          $(this).attr("src", ima);
           $(this).attr("data-state", "still")
-        } 
+        }
       });
-     
+
       renderButtons();
 
     </script>
