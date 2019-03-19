@@ -17,3 +17,9 @@ font-style: oblique}
     display: flex;
     flex-wrap: wrap
 }
+button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
